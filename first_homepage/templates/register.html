@@ -1,0 +1,56 @@
+{% extends 'index.html'%}
+{% load static %}
+<html>
+{% block content%}
+<title>Register</title>
+<link rel= "stylesheet" href="{%static 'css/user.css'%}"/>
+  <center>
+  <div class="reg">
+  <title> user registration form</title>
+  <h1 class="title">User Registration</h1>
+  <div class="lng2">
+      <form method="POST">
+          {% csrf_token %}
+          <div>
+            <label  class="label">Username </label>
+            {{form.username}}
+          </div>
+          <div>
+            <label  class="label">First Name </label>
+            {{form.first_name}}
+          </div>
+          <div>
+            <label class="label">Last Name </label>
+            {{form.last_name}}
+          </div>
+          <div>
+            <label class="label">E-mail </label>
+            {{form.email}}
+          </div>
+          <div>
+            <label class="label">Password </label>
+            {{form.password1}}
+          </div>
+          <div>
+            <label class="label">Confirm Password </label>
+            {{form.password2}}
+          </div>
+          <div>
+            {% for message in messages %}
+              <p style="color:red;font-weight: bold;font-family:sans-serif;">{{message}}</p>
+            {% endfor%}
+          </div>
+          <br>
+          <center>
+            <button type="submit">Register</button>
+          </center>
+          <br>
+          <div class="lng2-1">
+            <p>Already a member?  <a href="{% url 'login' %}">Login</a></p>
+          </div>
+      </form>
+    </div>
+  </div>
+</center>
+{% endblock %}
+</html>

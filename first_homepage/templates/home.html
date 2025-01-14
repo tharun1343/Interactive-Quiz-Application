@@ -1,0 +1,50 @@
+{% extends 'index.html'%}
+{%  load static %}
+{% block content %}
+<title>Home1</title>
+<style>
+    input,label{
+        margin-left: 10px;
+    }
+</style>
+<link rel="stylesheet" href="{% static 'css/ques.css'%}">
+<br><br><br><br><h3 class="til">Select the Quiz you want to take </h3>
+<center>
+  <div class="qs">
+      <form id="quiz_form" method="post">
+          {% csrf_token %}
+          {% if obj %}
+          {% for x in obj %}
+              <input type="radio" name="quiz" value="{{x.id}}" id="{{x.id}}" style="margin-left: 10px;">
+              <label class="quiz-label" for="{{x.id}}">{{x.quiz_name}}</label>
+              <br>
+          {% endfor %}
+          <br>
+          <div id="error"></div>
+          <center>
+            <button type="submit">PLAY</button>
+          </center>
+          {% else %}
+          <center>No Quiz avaible</center>
+          {% endif %}
+      </form>
+  </div>
+</center>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // jQuery
+  $(document).ready(function() {
+    $('#quiz_form').submit(function(event) {
+      const radioButtons = $('input[name="quiz"]');
+      const isChecked = radioButtons.is(':checked');
+
+      if (!isChecked) {
+        event.preventDefault();
+        $('#error').text('Please select a quiz.');
+      }
+    });
+  });
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,44 @@
+{% extends 'index.html'%}
+{%  load static %}
+<html>
+{% block content %}
+<title>Add Questions</title>
+<link rel="stylesheet" href="{% static 'css/ques.css'%}">
+<br><br>
+<h3 class="til">Enter the Question with correct answer</h3><br>
+<center>
+    <div class="qs2">
+        <form method="post">
+            {%csrf_token %}
+            <div class="form-group">
+                <select class="form-select" name="Quiz">
+                    <option disabled selected>SELECT QUIZ</option>
+                    {% for quiz in quiz_name %}
+                        <option value="{{quiz.id}}">{{quiz}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="question" placeholder="Question">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="op1" placeholder="Option 01">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="op2" placeholder="Option 02">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="op3" placeholder="Option 03">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="op4" placeholder="Option 04">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="ans" placeholder="Answer">
+            </div>
+            <center><button type="submit">ADD</button></center>
+        </form>
+    </div>
+</center>
+{% endblock%}
+</html>

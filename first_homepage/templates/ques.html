@@ -1,0 +1,46 @@
+{% extends 'index.html'%}
+{% load static %}
+<html>
+{% block content %}
+<title>Quiz Start</title>
+<link rel="stylesheet" href="{% static 'css/question page.css'%}">
+<link rel="stylesheet" href="{% static 'css/ques.css'%}">
+<form method="post">
+    {% csrf_token %}
+    <center>
+        <div class="quiz-container" id="quiz">
+            <h3 class="quiz-til">{{ display.quiz_name }}</h3>
+            {% for x in display.display.all %}
+            <div class="quiz-header">
+                <hr color="black">
+                <h2 id="question">{{x.question}}</h2>
+                <ul>
+                    <li>
+                    <input type="radio" id="{{x.id}}" name="{{x.question}}" class="answer" value="{{x.op1}}">
+                    <label for="{{x.id}}">{{x.op1}}</label>
+                    </li>
+
+                    <li>
+                    <input type="radio" id="{{x.id}}" name="{{x.question}}" class="answer" value="{{x.op2}}">
+                    <label for="{{x.id}}">{{x.op2}}</label>
+                    </li>
+
+                    <li>
+                    <input type="radio" id="{{x.id}}" name="{{x.question}}" class="answer" value="{{x.op3}}">
+                    <label for="{{x.id}}">{{x.op3}}</label>
+                    </li>
+
+                    <li>
+                    <input type="radio" id="{{x.id}}" name="{{x.question}}" class="answer" value="{{x.op4}}">
+                    <label for="{{x.id}}">{{x.op4}}</label>
+                    </li>
+                </ul> 
+            </div>
+            {% endfor %}
+            <hr color="black">
+            <button type="submit">Submit</button>
+            <br>
+        </div>
+    </center>
+</form>
+{% endblock %}

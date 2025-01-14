@@ -1,0 +1,32 @@
+{% extends 'index.html'%}
+{% load static %}
+<html>
+{% block content%}
+<title>Profile</title>
+  <link rel= "stylesheet" href="{%static 'css/user.css'%}"/>
+{% if user.is_authenticated %}
+  <center>
+  <div class="prf" style="color: rgb(0, 0, 0);">
+      <center>
+        <img style="height :50px;width :50px;border-radius: 30px;border:2.5px solid red;" src="{{ user.profile.image.url }}">
+      </center>
+      <h3 class="log">{{ user.first_name }} {{ user.last_name }}</h3>
+      <h4 style="font-weight: bold;"><br> Username   : {{ user }}</h4>
+      <h4 style="font-weight: bold;"><br> First Name   : {{ user.first_name }}</h4>
+      <h4 style="font-weight: bold;"><br> Last Name   : {{ user.last_name }}</h4>
+      <h4 style="font-weight: bold;"><br> E-mail : {{ user.email }}</h4>
+      <center>
+        <a href="{% url 'profup' %}" style="color: rgb(255, 145, 0);font-weight: bold;">Complete Your Profile</a><br>
+        <a href="{% url 'logout' %}"><br>
+          <button type="submit">LOGOUT</button>
+        </a>
+      </center>
+  {% else %}
+    <h3 class="pl">Please Login to view your details </h3>
+    <a href="{% url 'login' %}">
+    <button type="submit">LOGIN</button></a>
+  {% endif %}
+  </div>
+</center>
+{% endblock %}
+</html>

@@ -1,0 +1,35 @@
+{% extends 'index.html'%}
+{% load static %}
+<html>
+{% block content%}
+
+<title>Update Profile</title>
+<link rel= "stylesheet" href="{%static 'css/user.css'%}"/>
+  <center>
+  <div class="reg">
+    <div class="lng2">
+      {% if user.is_authenticated %}
+      <h1 class="log" style="color: red;padding-left: 20px;">Welcome {{ user.first_name }}</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p class="regf">Address : {{ u_form.address }}</p>
+        <p class="regf">Contact : {{ u_form.contact }}</p>     
+        <p class="regf">Alternate Contact : {{ u_form.alt_contact }}</p>
+        <p class="regf">Date Of Birth : {{ u_form.Date_Of_Birth }}</p>    
+        <p class="regf">Profile Picture  {{ u_form.image }}</p>   
+        {% for message in messages %}
+          <p style="color:rgb(10, 231, 10);font-weight: bold;text-align: left;">{{message}}</p>
+        {% endfor%}
+        <center>
+          <button type="submit">Update</button>
+        </center>
+      </form>
+    {% else %}
+      <h3 class="pl">Please Login  </h3>
+      <a href="{% url 'login' %}"><input  type="submit" value="Login"></a>
+    {% endif %}
+    </div>
+  </div>
+</center>
+{% endblock %}
+</html>

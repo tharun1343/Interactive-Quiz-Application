@@ -1,0 +1,21 @@
+{% extends 'index.html'%}
+{%  load static %}
+<html>
+{% block content %}
+<title>Add Quiz</title>
+<link rel="stylesheet" href="{% static 'css/ques.css'%}">
+<br><br><br><br>
+<h3 class="til">Enter the Quiz Name that you want to Add</h3>
+<center>
+    <div class="qs1">
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="quiz_name" placeholder="Quiz Name">
+            </div>
+            <center><button type="submit">ADD</button></center>
+        </form>
+    </div>
+</center>
+{% endblock %}
+</html>

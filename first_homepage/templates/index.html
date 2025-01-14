@@ -1,0 +1,77 @@
+{%load static%}
+<html>
+<!-- Basic Page Needs -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+    <!-- Stylesheets -->
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/style.css'%}"/>
+    <link rel="stylesheet" href="{%static 'css/preloader.css'%}"/>
+    <link rel="icon" sizes="16x16" href="{%static 'images/logo.ico'%}"/>
+
+    <!--Preloader-->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Preloader-->
+    <div id="preloader">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="loader16" id="loader16"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Header page -->
+<header id="masthead" class="site-header">
+<nav id="primary-navigation" class="site-navigation" data-spy="affix">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+
+         <!-- Name -->
+            <div class="page-scroll site-logo"> 
+                <a href="/"> <img class="logo" height="50" width="50" src="{%static 'images/logo.png'%}"/></a>
+            </div>
+
+        </div>
+
+        <div class="main-menu collapse navbar-collapse" id="portfolio-perfect-collapse">
+
+            <!-- Navigation -->
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_staff %}
+                    <li class="page-scroll"><a href='/'>Home</a></li>
+                    <li class="page-scroll"><a href="{% url 'addCourse'%}">Add Quiz</a></li>
+                    <li class="page-scroll"><a href="{% url 'addQues'  %}">Add Question</a></li>
+                    <li class="page-scroll"><a href="{% url 'prof' %}">Profile</a></li>
+                    <li class="page-scroll"><a href="{% url 'logout' %}">logout</a></li>
+                {% elif user.is_authenticated %}
+                    <li class="page-scroll"><a href='/'>Home</a></li>
+                    <li class="page-scroll"><a href="{% url 'prof' %}">Profile</a></li>
+                    <li class="page-scroll"><a href="{% url 'logout' %}">logout</a></li>
+                    <li class="page-scroll"><a href="mailto:admin@gmail.com">Contact us</a></li>
+                {% else %}
+                    <li class="page-scroll"><a href='/'>Home</a></li>
+                    <li class="page-scroll"><a href="{% url 'login' %}">Login</a></li>
+                    <li class="page-scroll"><a href="{% url 'register' %}">Register</a></li>
+                    <li class="page-scroll"><a href="mailto:admin@gmail.com">Contact us</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block content %}
+<link rel= "stylesheet" href="{%static 'css/stylel.css'%}"/>
+<br>
+{% endblock %}
+</header>
+</body>
+<!--jquery for preloader-->
+    <script src="{% static 'js/preloader.js' %}"></script>
+
+</html>

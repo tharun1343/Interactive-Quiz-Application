@@ -1,0 +1,52 @@
+.quiz-container {
+  background-color: rgb(246, 242, 242);
+  border-radius: 10px;
+  border: 3px solid rgb(238, 13, 163);
+  box-shadow:3px 3px 5px 5px rgb(228, 10, 10);
+  width: 600px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+hr{
+  background-color: #5e3370;
+  height: 1px;
+}
+.quiz-til{
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+  text-transform: uppercase;
+  text-shadow: 5px 5px solid red;
+  text-align: center;
+
+}
+.quiz-header {
+  text-align: left !important;
+}
+h2{
+  text-align: left;
+  margin: 0;
+  font-size: large;
+  font-weight: bold;
+}
+
+h2::first-letter{
+  text-transform: capitalize;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+ul li label {
+  cursor: pointer;
+}
+

@@ -1,0 +1,28 @@
+{% extends 'index.html'%}
+{% load static %}
+<html>
+{% block content %}
+<title>Login</title>
+<link rel="stylesheet" href="{% static 'css/user.css'%}">
+<center>
+  <div class="a1" >
+    <h1 class="title"> Login</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ login_form.as_p }}
+      <div>
+        {% for message in messages %}
+          <p style="color:red;font-weight: bold;">{{message}}</p>
+        {% endfor%}
+      </div>
+      <center>
+        <button type="submit">Login</button>
+      </center>
+      <div class="signup_link">
+        <p>Not a member? <a href="{% url 'register' %}">Signup</a></p>
+      </div>
+    </form>
+  </div>
+</center>
+{% endblock%}
+</html>

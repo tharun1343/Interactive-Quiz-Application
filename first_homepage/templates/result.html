@@ -1,0 +1,19 @@
+{% extends 'index.html'%}
+{% load static %}
+<html>
+{% block content %}
+<title>Results</title>
+<link rel="stylesheet" href="{% static 'css/user.css'%}">
+<center>
+    <div class="a13">
+        <h2 class="title">RESULTS</h2>
+        <hr color="black">
+        <h3 style="color: blueviolet;font-weight: bold;">Percentage : {{percent}}%</h3>
+        <h3 style="color: green;font-weight: bold;">Correct : {{correct}}</h3>
+        <h3 style="color: red;font-weight: bold;">Wrong : {{wrong}}</h3>
+        <h3 style="font-weight: bold;">Total Questions : {{total}}</h3>
+        <h3 style="font-weight: bold;">Scores : {{score}}</h3>
+    </div>
+</center>
+{% endblock%}
+</html>

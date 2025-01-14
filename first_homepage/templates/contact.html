@@ -1,0 +1,18 @@
+{% extends 'index.html'%}
+{%  load static %}
+<html>
+{% block content %}
+<title>Contact Us</title>
+<link rel="stylesheet" href="{% static 'css/ques.css'%}">
+<br><br><br><br>
+<h3 class="til">Contact Us</h3>
+<div class="qs3"> 
+    <br>
+<p>E-Mail  :<input type="email" placeholder="E-mail"></p><br>
+<p>Name    :<input type="text" placeholder="Name"></p><br>
+<p>Contact :<input type="number" placeholder="Contact"></p><br>
+<p>Message :<input class="msg" type="text" placeholder="Message"></p><br>
+<input class="btn" type="submit" value="submit">
+</div>
+{% endblock %}
+</html>
