@@ -10,6 +10,7 @@
     <center>
         <div class="quiz-container" id="quiz">
             <h3 class="quiz-til">{{ display.quiz_name }}</h3>
+            {% if display.display.all %}
             {% for x in display.display.all %}
             <div class="quiz-header">
                 <hr color="black">
@@ -41,6 +42,10 @@
             <button type="submit">Submit</button>
             <br>
         </div>
+        {% else %}
+        <center>No Questions available</center>
+        <br>
+        {% endif %}
     </center>
 </form>
 {% endblock %}
