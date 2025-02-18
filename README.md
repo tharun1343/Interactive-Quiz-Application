@@ -215,7 +215,7 @@ pip install -r requirements.txt
 ```
 ## 📸 Screenshot
 
-![Quiz App Screenshot](assets/screenshot.png)
+![Home](Screenshots/home.png)
 
 ## 📜 License
 

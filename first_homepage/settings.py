@@ -50,6 +50,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# HTTP Security Headers
+SECURE_HSTS_SECONDS = 3600 
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'  
 
 ROOT_URLCONF = 'first_homepage.urls'
 
@@ -135,3 +139,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR1,'media')
 MEDIA_URL = '/media/'
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
