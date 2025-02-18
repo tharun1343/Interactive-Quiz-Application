@@ -7,6 +7,9 @@
 {% if user.is_authenticated %}
   <center>
   <div class="prf" style="color: rgb(0, 0, 0);">
+      {% for message in messages %}
+         <center><p style="color:rgb(255, 0, 0);font-weight: bold">{{message}}</p></center>
+        {% endfor%}
       <center>
         <img style="height :50px;width :50px;border-radius: 30px;border:2.5px solid red;" src="{{ user.profile.image.url }}">
       </center>

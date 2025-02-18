@@ -76,10 +76,11 @@ def profup(request):
 		u_form = ProfileUpdateForm(request.POST,request.FILES,instance=request.user.profile)
 		if u_form.is_valid():
 			u_form.save()
-			messages.error(request,"Profile Updated Successfully")	    
+			messages.success(request,"Profile Updated Successfully")	  
+			return redirect("prof")
 	u_form= ProfileUpdateForm(instance=request.user.profile)
 	context ={'u_form': u_form}
-	return render(request,'up.html',context)
+	return render(request,'Profile_update.html',context)
 
 def addQuestion(request):
 	add_ques = addQues()
