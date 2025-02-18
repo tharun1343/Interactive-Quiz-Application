@@ -215,9 +215,28 @@ pip install -r requirements.txt
 ```
 ## 📸 Screenshot
 
-![Home](Screenshots/home.png)
+### Home Page
+![Home](first_homepage/media/Screenshots/home.png)
 
-## 📜 License
+### Login Page
+![login](first_homepage/media/Screenshots/login.png)
+
+### Register Page
+![register](first_homepage/media/Screenshots/register.png)
+
+### Profile Page
+![profile](first_homepage/media/Screenshots/profile.png)
+
+### Profile Update Page
+![profile-update](first_homepage/media/Screenshots/profile-update.png)
+
+### Add Quiz Page
+![add-quiz](first_homepage/media/Screenshots/add-quiz.png)
+
+### Add Question Page
+![add-question](first_homepage/media/Screenshots/add-question.png)
+
+## License
 
 This project is licensed under the MIT License.
 
